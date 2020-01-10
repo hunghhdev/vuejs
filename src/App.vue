@@ -6,6 +6,7 @@
       <button v-on:click="msg='hehe'">Change title</button>
       <comp-footer v-bind:msg="msg" />
       <demo-ref />
+      <demo-slot />
     </div>
   </div>
 </template>
@@ -15,13 +16,15 @@ import ListUser from "./components/ListUser";
 import CompHeader from "./components/CompHeader";
 import CompFooter from "./components/CompFooter";
 import DemoRef from "./components/DemoRef";
+import DemoSlot from "./components/DemoSlot";
 export default {
   name: "app",
   components: {
     CompHeader,
     CompFooter,
     ListUser,
-    DemoRef
+    DemoRef,
+    DemoSlot
   },
   data() {
     return {
