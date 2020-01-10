@@ -52,6 +52,35 @@ export default {
         }
       });
     }
+  },
+
+  beforeCreate() {
+    console.log("beforeCreate");
+  },
+  created() {
+    // Gọi API, AJAX
+    console.log("created", this.title);
+  },
+  beforeMount() {
+    console.log("mounted");
+  },
+  mounted() {
+    // Nếu muốn sử dụng jQuery -> Chỉ truy xuất DOM được trong mouted -> Có thể sử dụng jQuery
+    console.log("mounted", document.querySelector(".container").classList);
+  },
+  beforeUpdate() {
+    // Khi co su thay doi ve du lieu
+    console.log("beforeUpdate");
+  },
+  updated() {
+    console.log("updated");
+  },
+  beforeDestroy() {
+    console.log("beforeDestroy");
+  },
+  destroyed() {
+    // Destroyed các thư viện của bên thứ 3
+    console.log("destroyed");
   }
 };
 /*
