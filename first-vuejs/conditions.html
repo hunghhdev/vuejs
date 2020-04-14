@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .tabs {
+        margin: 0;
+        margin: 0;
+      }
+      .tabs li {
+        cursor: pointer;
+        display: inline-block;
+        margin: 10px 15px;
+        border: 1px solid #000;
+      }
+      .login,
+      .register {
+        width: 500px;
+        padding: 15px;
+        border: 5px solid brown;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <ul class="tabs">
+        <li v-on:click="changeTabs('login')">Dang nhap</li>
+        <li v-on:click="changeTabs('register')">Dang ky</li>
+      </ul>
+      <div class="login" v-if="tabSelected==='login'">
+        <h2>Form login</h2>
+        <form action="">
+          <input type="text" placeholder="username" />
+          <input type="password" placeholder="password" />
+        </form>
+      </div>
+      <div class="register" v-else-if="tabSelected==='register'">
+        <h2>Register</h2>
+        <form action="">
+          <input type="text" placeholder="username" />
+          <input type="password" placeholder="password" />
+          <input type="password" placeholder="repassword" />
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        tabSelected: "register"
+      },
+      methods: {
+        changeTabs(intput) {
+          this.tabSelected = intput;
+        }
+      }
+    });
+  </script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .demo {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+      }
+      .demo.active {
+        background-color: blue;
+      }
+      .demo.error {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div v-bind:style="{backgroundImage: background}">
+        <h1>firstName = {{ firstName }}</h1>
+        <input v-model="firstName" type="text" placeholder="Nhap firstName" />
+        <textarea v-model="about" cols="30" rows="10"></textarea>
+        <button v-on:click="changeActive">Change active</button>
+        <div class="demo" v-bind:class="objClass"></div>
+        <hr />
+        <div
+          v-bind:style="{color: activeColor, fontSize: fontSize + 'px', marginTop: '20px'}"
+        >
+          Test Style Bin
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        firstName: "",
+        about: "",
+        textClass: "active",
+        isActive: false,
+        isError: true,
+        activeColor: "red",
+        fontSize: 20,
+        bg: "https://images.unsplash.com/photo-1499084732479-de2c02d45fcc"
+      },
+      methods: {
+        handleKeyUp(e) {},
+        changeActive() {
+          this.isActive = !this.isActive;
+          this.isError = !this.isError;
+        }
+      },
+      computed: {
+        objClass: function() {
+          return {
+            active: this.isActive,
+            error: this.isError
+          };
+        },
+        background() {
+          return "url(" + this.bg + ")";
+        }
+      }
+    });
+  </script>
+</html>

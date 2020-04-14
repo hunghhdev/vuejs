@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .list-blog {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .list-blog .blog {
+        width: 21%;
+        margin: 2%;
+        border: 1px solid black;
+      }
+      .blog .title {
+        font-weight: 500;
+        font-size: 18px;
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="user" v-for="user in userActive">
+        {{user.email}}
+      </div>
+      <ul>
+        <li v-for="(value, key) in scores">
+          {{key}}:{{value}}
+        </li>
+      </ul>
+      <div class="list-blog">
+        <div v-for="(blog,index) in listBlogs" class="blog" v-bind:key="index">
+          <div class="title">{{blog.title}}</div>
+          <div class="description">{{blog.body}}</div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        arrUser: [
+          { email: "test1@gmail.com", isActive: false },
+          { email: "test2@gmail.com", isActive: false },
+          { email: "test3@gmail.com", isActive: true },
+          { email: "test4@gmail.com", isActive: true },
+          { email: "test5@gmail.com", isActive: false }
+        ],
+        scores: {
+          math: 9.0,
+          english: 7.5
+        },
+        listBlogs: [
+          {
+            id: "1",
+            userId: 32405,
+            title: "Rodriguez - Toy",
+            body: "Amelia Johns"
+          },
+          {
+            id: "2",
+            userId: 14801,
+            title: "Barton Group",
+            body: "Itzel Glover"
+          },
+          {
+            id: "3",
+            userId: 82851,
+            title: "Hansen, Anderson and Dooley",
+            body: "Loren Jacobson"
+          },
+          {
+            id: "4",
+            userId: 54096,
+            title: "Wolf - Altenwerth",
+            body: "Misty Reinger"
+          },
+          {
+            id: "5",
+            userId: 28677,
+            title: "O'Connell Group",
+            body: "Daren Beer"
+          },
+          {
+            id: "6",
+            userId: 28363,
+            title: "Weimann and Sons",
+            body: "Dakota Funk"
+          },
+          {
+            id: "7",
+            userId: 55015,
+            title: "Padberg Group",
+            body: "Vernie Koch"
+          },
+          {
+            id: "8",
+            userId: 47447,
+            title: "Wunsch - Pfannerstill",
+            body: "Pascale Upton"
+          },
+          {
+            id: "9",
+            userId: 35173,
+            title: "Homenick LLC",
+            body: "Esta Hyatt DDS"
+          }
+        ]
+      },
+      methods: {},
+      computed: {
+        userActive() {
+          return this.arrUser.filter(function(item) {
+            return item.isActive;
+          });
+        }
+      }
+    });
+  </script>
+</html>
