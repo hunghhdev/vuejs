@@ -1,5 +1,21 @@
 <template>
   <div>
+    <el-menu
+      class="el-menu-demo"
+      mode="horizontal"
+      background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#ffd04b">
+      <el-menu-item index="1">
+        <nuxt-link to="/" class="link-withhout-line">Home</nuxt-link>
+      </el-menu-item>
+      <el-menu-item index="2">
+        <nuxt-link to="/post/list" class="link-withhout-line">Post</nuxt-link>
+      </el-menu-item>
+      <el-menu-item index="3">
+        <nuxt-link to="/post/new" class="link-withhout-line">Add Post</nuxt-link>
+      </el-menu-item>
+    </el-menu>
     <nuxt />
   </div>
 </template>
@@ -51,5 +67,9 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+.link-withhout-line {
+  text-decoration: none;
 }
 </style>
